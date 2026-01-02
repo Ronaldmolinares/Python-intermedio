@@ -40,7 +40,7 @@ def juego():
     juegos, name_user = configuracion()
     victorias_user = 0
     victorias_pc = 0
-    rounds = 0
+    rounds = 1
     while True:
         try:
             resultado = solicitar_datos()
