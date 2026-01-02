@@ -1,9 +1,8 @@
 import random
 
-armas = ["piedra", "papel", "tijera"]
-
 
 def solicitar_datos():
+    armas = ["piedra", "papel", "tijera"]
     usuario = input("Escriba con que va a jugar: ")
     option_pc = random.randint(1, len(armas))
 
@@ -49,14 +48,14 @@ def juego():
                     print("Usuario Gana.")
                     victorias_user += 1
                     rounds += 1
-                    if victorias_user > numero_victorias:
+                    if victorias_user == numero_victorias:
                         print(f"Felicidades el usuario {name_user} a ganado.")
                         break
                 case _:
                     print("La computadora Gana")
                     victorias_pc += 1
                     rounds += 1
-                    if victorias_pc > numero_victorias:
+                    if victorias_pc == numero_victorias:
                         print("La computadora te ha derrotado.")
                         break
             print(
