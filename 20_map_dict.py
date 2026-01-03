@@ -13,6 +13,9 @@ items = [
     },
 ]
 
+items_cp = items.copy()
+print(items_cp)
+
 prices = list(map(lambda item: item["price"], items))
 print(prices)
 
@@ -27,7 +30,7 @@ print(prices)
 
 # forma del video:
 def total_price1(item):
-    item["value"] = item["price"] * 0.19
+    item["iva"] = item["price"] * 0.19
     return item
 
 
