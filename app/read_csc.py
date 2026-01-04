@@ -32,3 +32,35 @@ if __name__ == "__main__":
     print("::" * 15)
     result_2 = read_csv_2("./app/data.csv")
     print(result_2[0])
+
+
+# RETO
+# data.csv
+
+# Administration,200
+# Marketing,201
+# Purchasing,114
+# Human Resources,203
+# Shipping,121
+# IT,103
+# Public Relations,204
+# Sales,145
+# Executive,100
+# Finance,108
+
+
+# main.py
+
+# import csv
+
+# def read_csv(path):
+
+#    total = 0
+#    with open (path, "r") as file_csv:
+#       content = csv.reader(file_csv, delimiter=",")
+#       for item in content:
+#          total += int(item[1])
+#    return total
+
+# response = read_csv('./data.csv')
+# print(response)
