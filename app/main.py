@@ -16,9 +16,13 @@ countries = [
 ]
 
 
-keys, values = utils.get_population()
+def run():
+    keys, values = utils.get_population()
+    print(keys, values)
 
-print(keys, values)
+    country = utils.population_by_country(countries, "Colombia")
+    print(country)
 
-country = utils.population_by_country(countries, "Colombia")
-print(country)
+
+if __name__ == "__main__":
+    run()
