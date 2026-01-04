@@ -1,0 +1,9 @@
+Excelente, muy importante saber que el .read ocupa mas espacio en memoria y
+que siempre se debe cerrar con .close, y para evitar esto, mejor debemos
+usar el with open. Muchas gracias!
+siguiente clase.
+siguiente clase.
+Más lineas.
+siguiente clase.
+Más lineas.
+Fin.
