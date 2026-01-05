@@ -113,8 +113,8 @@ def continent_population_percentage(data):
     return values, labels
 
 
-v, l = continent_population_percentage(data)
-print(v[1], l[1])
+value, label = continent_population_percentage(data)
+print(value[1], label[1])
 
 
 def continent_population_percentage_2(data):
