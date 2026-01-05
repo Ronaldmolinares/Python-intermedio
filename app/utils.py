@@ -17,6 +17,53 @@ def filter_country(busqueda: str, data):
         return "Error: pais no encontrado."
 
 
+def world_population_percentage(data):
+    labels = []
+    values = []
+    for country in data:
+        values.append(country["World Population Percentage"])
+        labels.append(country["Country/Territory"])
+
+    return values, labels
+
+
+def continent_population_percentage(data):
+    dict_continent = {
+        "Asia": sum(
+            float(country["World Population Percentage"])
+            for country in data
+            if country["Continent"] == "Asia"
+        ),
+        "Europe": sum(
+            float(country["World Population Percentage"])
+            for country in data
+            if country["Continent"] == "Europe"
+        ),
+        "Africa": sum(
+            float(country["World Population Percentage"])
+            for country in data
+            if country["Continent"] == "Africa"
+        ),
+        "Oceania": sum(
+            float(country["World Population Percentage"])
+            for country in data
+            if country["Continent"] == "Oceania"
+        ),
+        "South America": sum(
+            float(country["World Population Percentage"])
+            for country in data
+            if country["Continent"] == "South America"
+        ),
+        "North America": sum(
+            float(country["World Population Percentage"])
+            for country in data
+            if country["Continent"] == "North America"
+        ),
+    }
+
+    return dict_continent.keys(), dict_continent.values()
+
+
 # def population_by_country(data, country):
 #     data = list(filter(lambda item: item["Country"] == country, data))
 #     return data

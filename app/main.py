@@ -15,6 +15,12 @@ def run():
     except Exception as e:
         print(f"Error: {e}, {type(e)}")
 
+    values, labels = utils.world_population_percentage(data)
+    charts.generate_pie_chart(values, labels)
+
+    continent, popultaion = utils.continent_population_percentage(data)
+    charts.generate_pie_chart(popultaion, continent)
+
 
 if __name__ == "__main__":
     run()

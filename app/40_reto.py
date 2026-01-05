@@ -76,8 +76,83 @@ def filter_country(busqueda: str, data):
 
 # r = population_country_2(data)
 # print(r)
-print("\n")
-print(data[0])
+# print("\n")
+# print(data[0])
 
-resultado = filter_country("china", data)
-print(f"\n{resultado}")
+# resultado = filter_country("china", data)
+# print(f"\n{resultado}")
+
+
+def world_population_percentage(data):
+    labels = []
+    values = []
+    for country in data:
+        values.append(country["World Population Percentage"])
+        labels.append(country["Country/Territory"])
+
+    # result = list(zip(values, labels))
+    return values, labels
+    # return result
+
+
+# v, l = world_population_percentage(data)
+# print(v[1], l[1])
+
+# go = world_population_percentage(data)
+# print(go)
+
+
+def continent_population_percentage(data):
+    labels = []
+    values = []
+    for country in data:
+        values.append(country["World Population Percentage"])
+        labels.append(country["Continent"])
+
+    labels = list(dict.fromkeys(labels))
+    return values, labels
+
+
+v, l = continent_population_percentage(data)
+print(v[1], l[1])
+
+
+def continent_population_percentage_2(data):
+    dict_continent = {
+        "Asia": sum(
+            float(country["World Population Percentage"])
+            for country in data
+            if country["Continent"] == "Asia"
+        ),
+        "Europe": sum(
+            float(country["World Population Percentage"])
+            for country in data
+            if country["Continent"] == "Europe"
+        ),
+        "Africa": sum(
+            float(country["World Population Percentage"])
+            for country in data
+            if country["Continent"] == "Africa"
+        ),
+        "Oceania": sum(
+            float(country["World Population Percentage"])
+            for country in data
+            if country["Continent"] == "Oceania"
+        ),
+        "South America": sum(
+            float(country["World Population Percentage"])
+            for country in data
+            if country["Continent"] == "South America"
+        ),
+        "North America": sum(
+            float(country["World Population Percentage"])
+            for country in data
+            if country["Continent"] == "North America"
+        ),
+    }
+
+    return dict_continent
+
+
+xc = continent_population_percentage_2(data)
+print(xc)
