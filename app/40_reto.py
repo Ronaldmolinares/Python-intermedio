@@ -154,5 +154,13 @@ def continent_population_percentage_2(data):
     return dict_continent
 
 
+def solucion_video(data):
+    paises = list(map(lambda country: country["Country/Territory"], data))
+    porcentaje_poblacion = list(
+        map(lambda country: country["World Population Percentage"], data)
+    )
+    return porcentaje_poblacion, paises
+
+
 xc = continent_population_percentage_2(data)
 print(xc)

@@ -27,6 +27,14 @@ def world_population_percentage(data):
     return values, labels
 
 
+def countries_with_population(data):
+    paises = list(map(lambda country: country["Country/Territory"], data))
+    porcentaje_poblacion = list(
+        map(lambda country: country["World Population Percentage"], data)
+    )
+    return porcentaje_poblacion, paises
+
+
 def continent_population_percentage(data):
     dict_continent = {
         "Asia": sum(

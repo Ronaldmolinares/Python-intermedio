@@ -10,7 +10,8 @@ def mostrar_menu():
     print("1. Buscar país y mostrar gráfico de barras")
     print("2. Ver porcentaje de población mundial (gráfico de pastel)")
     print("3. Ver población por continente (gráfico de pastel)")
-    print("4. Salir")
+    print("4. Ver población por continente especifico (gráfico de pastel)")
+    print("5. Salir")
     print("=" * 50)
 
 
@@ -30,16 +31,23 @@ def buscar_pais(data):
         print(f"Error: {e}, {type(e)}")
 
 
-def mostrar_poblacion_mundial(data):
+def show_world_population(data):
     print("\nGenerando gráfico de población mundial...")
     values, labels = utils.world_population_percentage(data)
     charts.generate_pie_chart(values, labels)
 
 
-def mostrar_poblacion_continente(data):
+def show_continent_population(data):
     print("\nGenerando gráfico de población por continente...")
     continent, population = utils.continent_population_percentage(data)
     charts.generate_pie_chart(population, continent)
+
+
+def population_by_continent(data):
+    continent = input("Ingrese el nombre del continente: ")
+    data = list(filter(lambda item: item["Continent"] == continent.title(), data))
+    percentage_population, countries = utils.countries_with_population(data)
+    charts.generate_pie_chart(percentage_population, countries)
 
 
 def run():
@@ -55,10 +63,12 @@ def run():
             except ValueError as e:
                 print(f"Error: Pais no registrado en el data set\n{e} , {type(e)}")
         elif opcion == "2":
-            mostrar_poblacion_mundial(data)
+            show_world_population(data)
         elif opcion == "3":
-            mostrar_poblacion_continente(data)
+            show_continent_population(data)
         elif opcion == "4":
+            population_by_continent(data)
+        elif opcion == "5":
             print("\n¡Hasta luego!")
             break
         else:
