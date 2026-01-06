@@ -3,7 +3,7 @@ import read_csv
 import utils
 
 
-def mostrar_menu():
+def show_menu():
     print("\n" + "=" * 50)
     print("World Population Dataset")
     print("=" * 50)
@@ -15,7 +15,7 @@ def mostrar_menu():
     print("=" * 50)
 
 
-def buscar_pais(data):
+def search_country(data):
     country = input("\nIngrese el nombre del país: ")
     keys, values = utils.filter_country(country, data)
 
@@ -44,6 +44,7 @@ def show_continent_population(data):
 
 
 def population_by_continent(data):
+    print("Continentes: Asia, Europe, Africa, Oceania, South America, North America")
     continent = input("Ingrese el nombre del continente: ")
     data = list(filter(lambda item: item["Continent"] == continent.title(), data))
     percentage_population, countries = utils.countries_with_population(data)
@@ -54,12 +55,12 @@ def run():
     data = read_csv.read_csv("./app/data.csv")
 
     while True:
-        mostrar_menu()
-        opcion = input("\nSeleccione una opción (1-4): ")
+        show_menu()
+        opcion = input("\nSeleccione una opción (1-5): ")
 
         if opcion == "1":
             try:
-                buscar_pais(data)
+                search_country(data)
             except ValueError as e:
                 print(f"Error: Pais no registrado en el data set\n{e} , {type(e)}")
         elif opcion == "2":
@@ -72,7 +73,7 @@ def run():
             print("\n¡Hasta luego!")
             break
         else:
-            print("\nOpción inválida. Por favor, seleccione 1, 2, 3 o 4.")
+            print("\nOpción inválida. Por favor, seleccione 1, 2, 3, 4 o 5.")
 
 
 if __name__ == "__main__":

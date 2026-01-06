@@ -164,3 +164,8 @@ def solucion_video(data):
 
 xc = continent_population_percentage_2(data)
 print(xc)
+
+a = {1, 2}
+b = {2, 3}
+print(a & b)
+print(0 / 0)
